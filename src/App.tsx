@@ -5,10 +5,12 @@ import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <main className="App">
-      <Calculator />
+    <div className="App">
+      <main>
+        <Calculator />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
 

@@ -1,8 +1,12 @@
 import React from 'react';
+import Summary from './Summary';
 
 const Calculator = () => {
     return (
-        <p>Calcing</p>
+        <div>
+            <Summary currentRound={1} cardsInPlay={12} turnsRemaining={6}/>
+            <p>Calcing</p>
+        </div>
     );
 }
 
