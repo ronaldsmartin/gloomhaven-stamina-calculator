@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "/gloomhaven-stamina-calculator/static/css/main.dfca195d.chunk.css",
-    "main.js": "/gloomhaven-stamina-calculator/static/js/main.55d212c3.chunk.js",
-    "main.js.map": "/gloomhaven-stamina-calculator/static/js/main.55d212c3.chunk.js.map",
+    "main.css": "/gloomhaven-stamina-calculator/static/css/main.5db97a28.chunk.css",
+    "main.js": "/gloomhaven-stamina-calculator/static/js/main.c1ec8be5.chunk.js",
+    "main.js.map": "/gloomhaven-stamina-calculator/static/js/main.c1ec8be5.chunk.js.map",
     "runtime-main.js": "/gloomhaven-stamina-calculator/static/js/runtime-main.65c9a17d.js",
     "runtime-main.js.map": "/gloomhaven-stamina-calculator/static/js/runtime-main.65c9a17d.js.map",
-    "static/js/2.47bd2da8.chunk.js": "/gloomhaven-stamina-calculator/static/js/2.47bd2da8.chunk.js",
-    "static/js/2.47bd2da8.chunk.js.map": "/gloomhaven-stamina-calculator/static/js/2.47bd2da8.chunk.js.map",
+    "static/js/2.0f13d20a.chunk.js": "/gloomhaven-stamina-calculator/static/js/2.0f13d20a.chunk.js",
+    "static/js/2.0f13d20a.chunk.js.map": "/gloomhaven-stamina-calculator/static/js/2.0f13d20a.chunk.js.map",
     "index.html": "/gloomhaven-stamina-calculator/index.html",
-    "precache-manifest.c244eef013d6d589f326b04ddb912637.js": "/gloomhaven-stamina-calculator/precache-manifest.c244eef013d6d589f326b04ddb912637.js",
+    "precache-manifest.e0aa62a48b4c8325de551a9fe816360d.js": "/gloomhaven-stamina-calculator/precache-manifest.e0aa62a48b4c8325de551a9fe816360d.js",
     "service-worker.js": "/gloomhaven-stamina-calculator/service-worker.js",
-    "static/css/main.dfca195d.chunk.css.map": "/gloomhaven-stamina-calculator/static/css/main.dfca195d.chunk.css.map",
-    "static/media/logo.svg": "/gloomhaven-stamina-calculator/static/media/logo.25bf045c.svg"
+    "static/css/main.5db97a28.chunk.css.map": "/gloomhaven-stamina-calculator/static/css/main.5db97a28.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.65c9a17d.js",
-    "static/js/2.47bd2da8.chunk.js",
-    "static/css/main.dfca195d.chunk.css",
-    "static/js/main.55d212c3.chunk.js"
+    "static/js/2.0f13d20a.chunk.js",
+    "static/css/main.5db97a28.chunk.css",
+    "static/js/main.c1ec8be5.chunk.js"
   ]
 }
