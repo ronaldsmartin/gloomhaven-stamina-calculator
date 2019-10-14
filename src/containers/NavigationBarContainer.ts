@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import NavigationBar, { NavigationBarProps } from '../components/NavigationBar';
+import NavigationBar from '../components/NavigationBar';
 import { AppState } from '../redux/reducers/app';
 import { ALL_CHARACTERS, CharacterId } from '../redux/types/characters';
 import { changeCharacter } from '../redux/actions/characters';
