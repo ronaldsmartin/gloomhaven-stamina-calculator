@@ -1,6 +1,5 @@
 import React from 'react';
-import { TurnTiming } from './Calculator';
-import { classNameFor } from './TurnList';
+import { classNameFor, TurnTiming } from './RoundList';
 
 /**
  * Encapsulates the data need to display an image for a turn.
@@ -11,7 +10,7 @@ export interface TurnIcon {
 }
 
 export interface TurnRecordRowProps {
-    roundNumber: number;
+    roundNumber?: number;
     icons?: TurnIcon[];
     description: string;
     turnTiming: TurnTiming;
