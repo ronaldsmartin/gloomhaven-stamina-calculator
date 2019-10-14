@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gloomhaven-stamina-calculator/precache-manifest.b7bc868ee1b1be4b83b2ff7b16dbf54f.js"
+  "/gloomhaven-stamina-calculator/precache-manifest.9b69c59062995041c7118bd561122d0b.js"
 );
 
 self.addEventListener('message', (event) => {

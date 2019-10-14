@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/gloomhaven-stamina-calculator/static/css/main.5db97a28.chunk.css",
-    "main.js": "/gloomhaven-stamina-calculator/static/js/main.5675f57c.chunk.js",
-    "main.js.map": "/gloomhaven-stamina-calculator/static/js/main.5675f57c.chunk.js.map",
+    "main.js": "/gloomhaven-stamina-calculator/static/js/main.6dcf3e5c.chunk.js",
+    "main.js.map": "/gloomhaven-stamina-calculator/static/js/main.6dcf3e5c.chunk.js.map",
     "runtime-main.js": "/gloomhaven-stamina-calculator/static/js/runtime-main.65c9a17d.js",
     "runtime-main.js.map": "/gloomhaven-stamina-calculator/static/js/runtime-main.65c9a17d.js.map",
-    "static/js/2.cc5997c0.chunk.js": "/gloomhaven-stamina-calculator/static/js/2.cc5997c0.chunk.js",
-    "static/js/2.cc5997c0.chunk.js.map": "/gloomhaven-stamina-calculator/static/js/2.cc5997c0.chunk.js.map",
+    "static/js/2.7ced3a75.chunk.js": "/gloomhaven-stamina-calculator/static/js/2.7ced3a75.chunk.js",
+    "static/js/2.7ced3a75.chunk.js.map": "/gloomhaven-stamina-calculator/static/js/2.7ced3a75.chunk.js.map",
     "index.html": "/gloomhaven-stamina-calculator/index.html",
-    "precache-manifest.b7bc868ee1b1be4b83b2ff7b16dbf54f.js": "/gloomhaven-stamina-calculator/precache-manifest.b7bc868ee1b1be4b83b2ff7b16dbf54f.js",
+    "precache-manifest.9b69c59062995041c7118bd561122d0b.js": "/gloomhaven-stamina-calculator/precache-manifest.9b69c59062995041c7118bd561122d0b.js",
     "service-worker.js": "/gloomhaven-stamina-calculator/service-worker.js",
     "static/css/main.5db97a28.chunk.css.map": "/gloomhaven-stamina-calculator/static/css/main.5db97a28.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.65c9a17d.js",
-    "static/js/2.cc5997c0.chunk.js",
+    "static/js/2.7ced3a75.chunk.js",
     "static/css/main.5db97a28.chunk.css",
-    "static/js/main.5675f57c.chunk.js"
+    "static/js/main.6dcf3e5c.chunk.js"
   ]
 }
