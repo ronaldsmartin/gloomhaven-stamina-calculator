@@ -16,7 +16,7 @@ const NavigationBar = (props: NavigationBarProps) =>
                 onChange={(event) => props.handleChange(event.target.value as CharacterId)}>
                 {
                     props.allCharacters.map(character => {
-                        return <option value={character.id}>{character.name}</option>
+                        return <option key={character.id} value={character.id}>{character.name}</option>
                     })
                 }
             </select>
