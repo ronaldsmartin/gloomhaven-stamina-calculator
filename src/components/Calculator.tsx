@@ -1,37 +1,20 @@
 import React from 'react';
+import { ScenarioState } from '../redux/types/scenarioState';
+import RoundList from './RoundList';
 import Summary from './Summary';
-import TurnList from './TurnList';
 
-export interface Turn {
-    roundNumber: number;
-    description: string;
-    shortRestFollows: boolean;
-}
+export type CalculatorProps = ScenarioState;
 
-export class StandardTurn implements Turn {
-    readonly description: string = "Standard turn";
-    constructor(readonly roundNumber: number, readonly shortRestFollows: boolean) {}
-}
-export enum TurnTiming { Previous, Future }
-
-const mockPreviousTurns: Turn[] = [
-    new StandardTurn(1, false),
-    new StandardTurn(2, false),
-    new StandardTurn(3, false),
-    new StandardTurn(4, true),
-];
-const mockProjectedTurns: Turn[] = [
-    new StandardTurn(5, false),
-    new StandardTurn(6, false),
-    new StandardTurn(7, true),
-    new StandardTurn(8, false),
-];
-
-const Calculator = () => {
+const Calculator = (props: CalculatorProps) => {
     return (
         <div>
-            <Summary currentRound={1} cardsInPlay={12} turnsRemaining={6} />
-            <TurnList previousTurns={mockPreviousTurns} projectedTurns={mockProjectedTurns} />
+            <Summary 
+                currentRound={props.currentRound} 
+                cardsInPlay={props.currentHandCount} 
+                turnsRemaining={props.projectedRounds.length} />
+            <RoundList 
+                completedRounds={props.completedRounds} 
+                projectedRounds={props.projectedRounds} />
         </div>
     );
 }

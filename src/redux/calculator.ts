@@ -1,12 +1,86 @@
-import { ScenarioState } from "./types/scenarioState";
+import { playLossCard, playRevivingEther, playStandardCard, shortRest } from "./actions/calculator";
 import { ScenarioAction, ScenarioActionKeys } from "./types/scenarioActionTypes";
+import { Round, ScenarioState } from "./types/scenarioState";
 
 const initialState: ScenarioState = {
+    startingHandCount: 10,
+    hasRevivingEther: false,
+
     currentRound: 1,
-    startingHandCount: 12,
     currentHandCount: 12,
     currentDiscardCount: 0,
     currentLostCount: 0,
+
+    completedRounds: [],
+    get projectedRounds(): Round[] {
+        return calculateProjectedRounds(
+            this.startingHandCount,
+            this.currentHandCount - 2, // Future rounds assume one round is complete
+            this.currentDiscardCount, 
+            this.currentLostCount, 
+            this.hasRevivingEther
+        );
+    }
+}
+
+function calculateProjectedRounds(
+    startingHandCount: number,
+    currentHandCount: number,
+    currentDiscardCount: number,
+    currentLostCount: number,
+    hasRevivingEther: boolean
+): Round[] {
+    // Base case
+    if (currentHandCount < 2) {
+        // The player is exhausted this turn.
+        return [];
+    }
+
+    // The maximum number of cards in play next round if we rest (without Reviving Ether):
+    const maxNextRoundCardCount = currentHandCount + currentDiscardCount - 1;
+
+    if (hasRevivingEther && maxNextRoundCardCount < 2) {
+        // Spellweaver needs to use Reviving Ether. 
+        // The optimal move will burn a Loss card before applying Reviving Ether.
+        const thisRound: Round = [
+            playLossCard(),
+            playRevivingEther(),
+        ] 
+        return [thisRound].concat(
+            calculateProjectedRounds(startingHandCount, startingHandCount - 1, 0, 0, false)
+        )
+    }
+
+    // Assume a standard move (optimal to avoid Exhaustion).
+    let thisRound: Round = [
+        playStandardCard(),
+        playStandardCard(),
+    ];
+
+    if (currentHandCount < 4 && maxNextRoundCardCount >= 2) {
+        // The character should rest to avoid exhaustion after this turn.
+        thisRound.push(shortRest())
+
+        return [thisRound].concat(
+            calculateProjectedRounds(
+                startingHandCount, 
+                maxNextRoundCardCount, 
+                0, 
+                currentLostCount + 1, 
+                hasRevivingEther
+            )
+        );
+    }
+
+    return [thisRound].concat(
+        calculateProjectedRounds(
+            startingHandCount,
+            currentHandCount - 2,
+            currentDiscardCount + 2,
+            currentLostCount,
+            hasRevivingEther
+        )
+    );
 }
 
 const calculator = (
@@ -20,15 +94,17 @@ const calculator = (
                 currentHandCount: state.currentHandCount - 1,
                 currentDiscardCount: state.currentDiscardCount + 1,
             }
-        case ScenarioActionKeys.PLAY_LOSS_CARD,
-             ScenarioActionKeys.ESCAPE_DAMAGE_HAND:
+        case ScenarioActionKeys.PLAY_LOSS_CARD:
+            // Fallthrough
+        case ScenarioActionKeys.ESCAPE_DAMAGE_HAND:
             return {
                 ...state,
                 currentHandCount: state.currentHandCount - 1,
                 currentLostCount: state.currentLostCount + 1,
             }
-        case ScenarioActionKeys.SHORT_REST, 
-             ScenarioActionKeys.LONG_REST:
+        case ScenarioActionKeys.SHORT_REST:
+            // Fallthrough
+        case ScenarioActionKeys.LONG_REST:
             return {
                 ...state,
                 currentHandCount: state.currentHandCount + Math.max(state.currentDiscardCount - 1, 0),
@@ -52,6 +128,7 @@ const calculator = (
                 ...state,
                 currentHandCount: state.currentHandCount + state.currentLostCount,
                 currentLostCount: 0,
+                hasRevivingEther: false,
             }
         case ScenarioActionKeys.END_TURN:
             return {

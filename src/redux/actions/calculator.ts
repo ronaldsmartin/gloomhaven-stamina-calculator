@@ -1,15 +1,4 @@
-import { 
-    ScenarioActionKeys, 
-    PlayStandardAction, 
-    PlayLossCardAction, 
-    ShortRestAction, 
-    LongRestAction, 
-    EscapeDamageHandAction, 
-    EscapeDamageDiscardAction, 
-    UseStaminaPotionAction, 
-    RevivingEtherAction,
-    EndTurnAction,
-} from '../types/scenarioActionTypes';
+import { EndTurnAction, EscapeDamageDiscardAction, EscapeDamageHandAction, LongRestAction, PlayLossCardAction, PlayStandardAction, RevivingEtherAction, ScenarioActionKeys, ShortRestAction, UseStaminaPotionAction } from '../types/scenarioActionTypes';
 
 export function playStandardCard(): PlayStandardAction {
     return {
@@ -53,7 +42,7 @@ export function useStaminaPotion(): UseStaminaPotionAction {
     }
 }
 
-export function useRevivingEther(): RevivingEtherAction {
+export function playRevivingEther(): RevivingEtherAction {
     return {
         type: ScenarioActionKeys.REVIVING_ETHER,
     }

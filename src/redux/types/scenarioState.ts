@@ -1,7 +1,16 @@
+import { ScenarioAction } from "./scenarioActionTypes";
+
 export interface ScenarioState {
-    currentRound: number;
     startingHandCount: number;
+    hasRevivingEther: boolean;
+
+    currentRound: number;
     currentHandCount: number;
     currentDiscardCount: number;
     currentLostCount: number;
+
+    completedRounds: Round[];
+    projectedRounds: Round[];
 }
+
+export type Round = ScenarioAction[];

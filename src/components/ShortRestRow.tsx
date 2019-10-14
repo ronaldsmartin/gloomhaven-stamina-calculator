@@ -1,6 +1,5 @@
 import React from 'react';
-import { TurnTiming } from './Calculator';
-import { classNameFor } from './TurnList';
+import { classNameFor, TurnTiming } from './RoundList';
 
 export interface ShortRestRowProps {
     turnTiming: TurnTiming;
