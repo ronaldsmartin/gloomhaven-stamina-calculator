@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "697c9aaddab46f98b845c337f7281f0f",
+    "revision": "33b9981568f138849b851787a27afa8f",
     "url": "/gloomhaven-stamina-calculator/index.html"
   },
   {
-    "revision": "7033aa1f5309c26e9e85",
+    "revision": "2aeb6013611d2e9dbff4",
     "url": "/gloomhaven-stamina-calculator/static/css/main.5db97a28.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gloomhaven-stamina-calculator/static/js/2.7ced3a75.chunk.js"
   },
   {
-    "revision": "7033aa1f5309c26e9e85",
-    "url": "/gloomhaven-stamina-calculator/static/js/main.6dcf3e5c.chunk.js"
+    "revision": "2aeb6013611d2e9dbff4",
+    "url": "/gloomhaven-stamina-calculator/static/js/main.29ee8728.chunk.js"
   },
   {
     "revision": "49d2391574a19c4be5ae",
