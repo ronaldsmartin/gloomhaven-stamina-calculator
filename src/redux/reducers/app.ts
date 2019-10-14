@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import calculator from './calculator'
+import character from './character'
 
 const rootReducer = combineReducers({
-    calculator
+    character,
+    calculator,
 });
 
 export type AppState = ReturnType<typeof rootReducer>

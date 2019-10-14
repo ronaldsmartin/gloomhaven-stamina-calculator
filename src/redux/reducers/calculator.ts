@@ -1,29 +1,25 @@
-import { playLossCard, playRevivingEther, playStandardCard, shortRest } from "./actions/calculator";
-import { ScenarioAction, ScenarioActionKeys } from "./types/scenarioActionTypes";
-import { Round, ScenarioState } from "./types/scenarioState";
+import { playLossCard, playRevivingEther, playStandardCard, shortRest } from "../actions/calculator";
+import { ScenarioAction, ScenarioActionKeys } from "../types/scenarioActionTypes";
+import { Round, ScenarioState } from "../types/scenarioState";
+import { CharacterAction, CharacterActionKeys } from "../types/characterActionTypes";
+import { initialCharacterState } from "./character";
+
+const initialCharacter = initialCharacterState.current;
 
 const initialState: ScenarioState = {
-    startingHandCount: 10,
-    hasRevivingEther: false,
+    startingHandCount: initialCharacter.handSize,
+    hasRevivingEther: initialCharacter.hasRevivingEther,
 
     currentRound: 1,
-    currentHandCount: 12,
+    currentHandCount: initialCharacter.handSize,
     currentDiscardCount: 0,
     currentLostCount: 0,
 
     completedRounds: [],
-    get projectedRounds(): Round[] {
-        return calculateProjectedRounds(
-            this.startingHandCount,
-            this.currentHandCount - 2, // Future rounds assume one round is complete
-            this.currentDiscardCount, 
-            this.currentLostCount, 
-            this.hasRevivingEther
-        );
-    }
+    projectedRounds: [],
 }
 
-function calculateProjectedRounds(
+export function calculateProjectedRounds(
     startingHandCount: number,
     currentHandCount: number,
     currentDiscardCount: number,
@@ -85,7 +81,7 @@ function calculateProjectedRounds(
 
 const calculator = (
     state: ScenarioState = initialState, 
-    action: ScenarioAction
+    action: ScenarioAction | CharacterAction
 ): ScenarioState => {
     switch (action.type) {
         case ScenarioActionKeys.PLAY_STANDARD:
@@ -137,9 +133,21 @@ const calculator = (
             }
         case ScenarioActionKeys.OTHER_ACTION:
             return state;
+        case CharacterActionKeys.CHANGE_CHARACTER:
+            const newCharacter = action.newCharacter;
+            return {
+                ...state,
+                startingHandCount: newCharacter.handSize,
+                hasRevivingEther: newCharacter.hasRevivingEther,
+                currentRound: 1,
+                currentHandCount: newCharacter.handSize,
+                currentDiscardCount: 0,
+                currentLostCount: 0,
+                completedRounds: [],
+            }
         default:
             return state;
     }
 }
 
-export default calculator
+export default calculator;

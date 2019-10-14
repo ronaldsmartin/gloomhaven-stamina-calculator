@@ -23,11 +23,12 @@ export interface RoundListProps {
 }
 
 function rowsForRound(round: Round, roundNumber: number, timing: TurnTiming) {
-    return round.map((action, index) => rowForAction(action, roundNumber, timing, index === 0));
+    return round.map((action, index) => rowForAction(action, index, roundNumber, timing, index === 0));
 }
 
 function rowForAction(
-    action: ScenarioAction, 
+    action: ScenarioAction,
+    actionNumber: number,
     roundNumber: number, 
     timing: TurnTiming,
     isFirstActionInRound: boolean,
@@ -38,7 +39,7 @@ function rowForAction(
                     turnTiming={timing} />
     }
     return <TurnRecordRow
-                key={`turn-${roundNumber}-${action.type}`}
+                key={`round-${roundNumber}-action-${actionNumber}-${action.type}`}
                 roundNumber={isFirstActionInRound ? roundNumber : undefined}
                 description={description(action)}
                 turnTiming={timing} />
