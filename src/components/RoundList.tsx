@@ -73,6 +73,13 @@ function description(action: ScenarioAction) {
 
 const RoundList = (props: RoundListProps) => <table className="TurnList">
     <caption>Turns</caption>
+    <thead>
+        <tr>
+            <th scope="col">Round Number</th>
+            <th scope="col"></th>
+            <th scope="col">Actions taken</th>
+        </tr>
+    </thead>
     <tbody>
         {
             props.completedRounds.flatMap((round, roundNumber) => 
