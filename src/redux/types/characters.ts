@@ -4,7 +4,7 @@ export enum CharacterId {
     Mindthief = "Mindthief",
     Scoundrel = "Scoundrel",
     Spellweaver = "Spellweaver",
-    Tinker = "Tinker",
+    Tinkerer = "Tinkerer",
     Sawbones = "Saw"
 }
 
@@ -34,6 +34,6 @@ export const ALL_CHARACTERS = [
     makeCharacter(CharacterId.Mindthief, 10),
     makeCharacter(CharacterId.Scoundrel, 9),
     makeCharacter(CharacterId.Spellweaver, 8, true),
-    makeCharacter(CharacterId.Tinker, 12),
+    makeCharacter(CharacterId.Tinkerer, 12),
     makeCharacter(CharacterId.Sawbones, 10),
 ]
