@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import Calculator from '../components/Calculator';
 import { AppState } from '../redux/reducers/app';
 import { calculateProjectedRounds } from '../redux/reducers/calculator';
+import { ScenarioAction } from '../redux/types/scenarioActionTypes';
 
 const mapStateToProps = (state: AppState) => {
     const scenarioState = state.calculator;
@@ -17,7 +18,9 @@ const mapStateToProps = (state: AppState) => {
         ) || [],
     }
 };
-const matchDispatchToProps = (dispatch: Dispatch) => { }
+const matchDispatchToProps = (dispatch: Dispatch) => ({
+    onScenarioActionClick: (action: ScenarioAction) => dispatch(action)
+});
 
 const StatefulCalculator = connect(
     mapStateToProps,

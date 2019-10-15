@@ -16,6 +16,7 @@ const initialState: ScenarioState = {
     currentLostCount: 0,
 
     completedRounds: [],
+    queuedActions: [],
     projectedRounds: [],
 }
 
@@ -89,6 +90,7 @@ const calculator = (
                 ...state,
                 currentHandCount: state.currentHandCount - 1,
                 currentDiscardCount: state.currentDiscardCount + 1,
+                queuedActions: state.queuedActions.concat(action),
             }
         case ScenarioActionKeys.PLAY_LOSS_CARD:
             // Fallthrough
@@ -97,6 +99,7 @@ const calculator = (
                 ...state,
                 currentHandCount: state.currentHandCount - 1,
                 currentLostCount: state.currentLostCount + 1,
+                queuedActions: state.queuedActions.concat(action),
             }
         case ScenarioActionKeys.SHORT_REST:
             // Fallthrough
@@ -130,6 +133,8 @@ const calculator = (
             return {
                 ...state,
                 currentRound: state.currentRound + 1,
+                completedRounds: state.completedRounds.concat([state.queuedActions]),
+                queuedActions: [],
             }
         case ScenarioActionKeys.OTHER_ACTION:
             return state;

@@ -1,4 +1,15 @@
-import { EndTurnAction, EscapeDamageDiscardAction, EscapeDamageHandAction, LongRestAction, PlayLossCardAction, PlayStandardAction, RevivingEtherAction, ScenarioActionKeys, ShortRestAction, UseStaminaPotionAction } from '../types/scenarioActionTypes';
+import { 
+    EndTurnAction,
+    EscapeDamageDiscardAction,
+    EscapeDamageHandAction,
+    LongRestAction,
+    PlayLossCardAction,
+    PlayStandardAction,
+    RevivingEtherAction,
+    ScenarioActionKeys,
+    ShortRestAction,
+    UseStaminaPotionAction,
+} from '../types/scenarioActionTypes';
 
 export function playStandardCard(): PlayStandardAction {
     return {

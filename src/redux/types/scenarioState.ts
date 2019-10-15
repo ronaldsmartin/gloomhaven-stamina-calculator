@@ -10,6 +10,7 @@ export interface ScenarioState {
     currentLostCount: number;
 
     completedRounds: Round[];
+    queuedActions: Round;
     projectedRounds: Round[];
 }
 
